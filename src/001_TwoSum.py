@@ -19,10 +19,13 @@ Created on Apr 27, 2016
 class Solution:
     def twoSum(self, num, target):
         nums = num
-        for ind1,val in enumerate(nums):
-            if target - val in nums:
-                return ind1, num.index(target - val)
+        for ind1, val1 in enumerate(nums):
+            val2 = target - val1
+            if val2 in nums:
+                ind2 = num.index(val2)
+                if ind1 != ind2:
+                    return ind1, ind2
             
             
 if __name__ == '__main__':
-    print (Solution().twoSum([2,3,4],7))
+    print (Solution().twoSum([2, 2, 4], 4))
