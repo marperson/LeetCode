@@ -18,11 +18,14 @@ class Solution:
     # @return a boolean
     # @good coding!
     def convert(self, s, nRows):
+        #If nRow==1, then return s
         if nRows == 1:
-            print (s) 
             return s
+        # Create a list with nRows elements, "Paypayishiring" with nRow==3, list with three elements
         tmp = ['' for i in range(nRows)]
+        #Default value
         index = -1; step = 1
+        #Iteration vertically 
         for i in range(len(s)):
             index += step
             if index == nRows:
@@ -33,8 +36,5 @@ class Solution:
         return ''.join(tmp)
 
 
-if __name__ == '_main__':
-
-    #s = Solution()
-    print ('hhh')
-    #print (s.convert('Paypayish iri ng', 1))
+#if __name__ == '_main__':
+print (Solution().convert('Paypayishiring', 4))
