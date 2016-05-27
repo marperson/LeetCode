@@ -23,6 +23,7 @@ class Solution:
            '''
 
 str = "This is word"
+str2 = "This is second word"
 s = Solution()
 #print (s.reverseWords(str))
 print(s.reverseWords(str))
