@@ -88,15 +88,32 @@ class BinarySearchTree(object):
                     self.rightChild.searchBST(data)
             else:
                 print (self.data)
+                return self.data
                 
-    def DeleteBSTNode(self, data):
+    def deleteBSTNode(self, data):
+        '''
+        1. Call SearchBST method to find the node
+        2. Node has three possibilities, 
+            a. Node has no children
+            b. Node has leftChild
+            c. Node has rightChild
+        '''
         if self.data is None:
             print('Tree is empty')
         else:
+            myNode = self.searchBST(data)
             if (self.leftChild is None) and (self.rightChild is None):
-                self.data
+                print (self.searchBST(data))
+                self.searchBST(data) = None
+            elif (not self.leftChild is None) and (self.rightChild is None):
+                self.leftChild.deleteBSTNode(data)
+            elif (self.leftChild is None) and (not self.rightChild is None):
+                self.data = self.rightChild
                 
-    
+                
+                
+                
+                
 root = BinarySearchTree(6)
 root.insert(2)
 root.insert(7)
@@ -107,11 +124,15 @@ root.insert(11)
 root.insert(8)
 root.insert(13)
 
+print ('BST:...')
+root.preorder()
 
 
-# root.preorder()
-# root.inorder()
+#root.preorder()
+#root.inorder()
 #root.postorder()
-root.searchBST(12)
-
-    
+print ('pre order bst:')
+root.searchBST(11)
+print ('delte one node')
+root.deleteBSTNode(2)
+root.preorder()
