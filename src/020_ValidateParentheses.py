@@ -13,7 +13,7 @@ The brackets must close in the correct order, "()" and "()[]{}" are all valid bu
 
 class Solution:
     
-    def validateParentheses1(self,str):
+    def validateParentheses1(self, str):
         stack = []
         pushChars = '<({['
         popChars = '>)}]'
@@ -28,14 +28,42 @@ class Solution:
                 if stack.pop() != pushChars[popChars.index(c)]:
                     return False
             else:
-                #or elif not len(str)
                     return False
                 
         return True
+    
+    
+    def validateParentheses2(self, str):
+        stack = []
+        
+        for s in str:
+            if s == '(' or s == '[' or s == '{':
+                stack.append(s);
+                print (len(stack))
+            elif s == ')':
+                #Validate stack is not empty, otherwise it causes exception
+                if len(stack) == 0 or stack.pop() != '(':
+                    return False
+            elif s == ']':
+                if len(stack) == 0 or stack.pop() != '[':
+                    return False
+            elif s == '}':
+                if len(stack) == 0 or stack.pop() != '{':
+                    return False
+            else:
+                return False
+            
+        # validate stack is empty at the end
+        if len(stack) != 0:
+            return False
+        
+        # If all above conditions are not met, return true
+        return True
+            
+        
 
-
-str = '(((())))'
-print (Solution().validateParentheses1(str))
+str = '{{(())}}'
+print (Solution().validateParentheses2(str))
                 
                 
         
