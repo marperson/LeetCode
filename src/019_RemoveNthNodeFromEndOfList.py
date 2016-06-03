@@ -21,6 +21,35 @@ Try to do this in one pass.
 
 @author: frank.he
 '''
+from src.basic import LinkedList
+class Solution(LinkedList):
+    
+    def removeNode(self, n, head):
+        p1 = head
+        p2 = head
+        
+        for i in range(n):
+            p1 = p1.next
+       
+        
+        while (p1 != None):
+            p1 = p1.next
+            p2 = p2.next
+            
+        p2.next = p2.next.next
+        return head
+    
+ 
+# Build Liked list
+node1 = LinkedList('1', None)
+node2 = LinkedList('2', None)
+node3 = LinkedList('3', None)
 
-class Solution:
-    def removeNode(self, n):
+node1.next = node2
+node2.next = node3
+
+# print (node2.getNext().getData())
+
+# Remove node
+myList = Solution().removeNode(2, node1)
+# myList.LinkedList.printList(node1)
