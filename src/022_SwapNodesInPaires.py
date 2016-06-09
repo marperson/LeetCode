@@ -35,7 +35,7 @@ class Solution:
         # Write your code here
         if head == None or head.next == None:
             return head
-        dummy = ListNode(0); dummy.next = head
+        dummy = list(0); dummy.next = head
         p = dummy
         while p.next and p.next.next:
             tmp = p.next.next

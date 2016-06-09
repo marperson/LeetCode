@@ -25,11 +25,12 @@ class Solution:
             while (j < len_t):
                 if source[i + j] != target[j]:
                     break
+                print (j)
                 j += 1
             if j == len_t:
                 return i
         return -1
      
      
-print (Solution().removeElement([1,2,2,3,4,4],2))       
+print (Solution().strStr('aabbcc','b')       
         
