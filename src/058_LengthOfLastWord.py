@@ -15,3 +15,19 @@ return 5.
 '''
 class Solution:
     def lengthOfLastWord(self,s):
+        newStr = s[::-1]
+        str = ''
+        for i in newStr:
+            if i != ' ':
+                str = str+i
+            else:
+                break
+        if not str:
+            return 0
+        else:
+            return len(str)
+        
+    def lengthOfLastWord2(self, s):
+        return len(s.split()[len(s.split())-1]) if s.split() != [] else 0
+
+print(Solution().lengthOfLastWord(''))
