@@ -37,10 +37,23 @@ return its level order traversal as:
 　　　　    二叉树的先序遍历为{1，2，4，5，3，6，7}，可以看到这个遍历顺序实际上就是dfs。在这个遍历中，我们可以用一个level来记录节点的高度，根节点高度为0。
 
 '''
+# Definition for a  binary tree node
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
 class Solution:
-    def traversal(self,root):
-        if not root:
-            print ('Empty Tree')
-        else:
-            
+    # @param root, a tree node
+    # @return a list of lists of integers
+    def preorder(self, root, level, res):
+        if root:
+            if len(res) < level+1: res.append([])
+            res[level].append(root.val)
+            self.preorder(root.left, level+1, res)
+            self.preorder(root.right, level+1, res)
+    def levelOrder(self, root):
+        res=[]
+        self.preorder(root, 0, res)
+        return res
