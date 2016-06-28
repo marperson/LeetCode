@@ -49,7 +49,8 @@ class Solution:
     # @return a list of lists of integers
     def preorder(self, root, level, res):
         if root:
-            if len(res) < level+1: res.append([])
+            if len(res) < level+1: 
+                res.append([])
             res[level].append(root.val)
             self.preorder(root.left, level+1, res)
             self.preorder(root.right, level+1, res)
