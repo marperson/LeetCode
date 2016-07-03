@@ -32,5 +32,4 @@ class Solution:
         return -1
      
      
-print (Solution().strStr('aabbcc','b')       
-        
+print (Solution().strStr('aabbcc','b'))
